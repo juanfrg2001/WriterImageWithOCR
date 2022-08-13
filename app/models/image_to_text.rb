@@ -10,8 +10,4 @@ class ImageToText < ApplicationRecord
         end
     end
 
-    def self.picture_from_url(url) 
-        picture = open(url)
-    end
-
 end
