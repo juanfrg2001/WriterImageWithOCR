@@ -1,6 +1,7 @@
 class ImageToText < ApplicationRecord
     
     def self.image_text(path)
+        
         image = RTesseract.new(path)
         image_text = image.to_s
         if image_text != " \n\f"
