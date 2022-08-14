@@ -1,8 +1,8 @@
 class ImageToText < ApplicationRecord
-    
-    def self.image_text(path)
+
+    def self.image_text(base64_image)
         File.open("tmp/test_file.jpg", "wb") do |f| 
-            f.write HTTParty.get(path).body
+            f.write Base64.decode64(base64_image)
         end
         image = RTesseract.new('tmp/test_file.jpg')
         image_text = image.to_s
